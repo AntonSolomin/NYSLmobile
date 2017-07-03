@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+	<!--  ????????????  -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+	<title>NYSL Mobile App</title>
+	
+	
+	<link rel="manifest" href="script/splash.json">
+
+	<!-- Disable tap highlight on IE -->
+	<meta name="msapplication-tap-highlight" content="no">
+
+	<link rel="shortcut-icon" href="media/Soccerball_Body_Updated.png">
+	<!--<link rel="shortcut icon" sizes="128x128" href="media/nysl_logo128.png">-->
+	<link rel="shortcut icon" sizes="196x196" href="media/Soccerball_Body_Updated.png">
+	<link rel="apple-touch-icon" href="media/nysl_logo60.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="media/nysl_logo76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="media/nysl_logo120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="media/Soccerball_Body_Updated.png">
+
+	<!-- Add to homescreen for Chrome on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	
+
+	<!-- Add to homescreen for Safari on iOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	
+
+	<!-- Tile icon for Win8 -->
+	<meta name="msapplication-TileColor" content="#3372DF">
+	<meta name="msapplication-navbutton-color" content="#303F9F">
+
+
+
+  
+
+	<!-- Material Design Lite -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css">
+	<script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" integrity="sha256-iaqfO5ue0VbSGcEiQn+OeXxnxAMK2+QgHXIDA5bWtGI=" crossorigin="anonymous"></script>
+	<!--library for swipe and pan enabling -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha256-eVNjHw5UeU0jUqPPpZHAkU1z4U+QFBBY488WvueTm88=" crossorigin="anonymous"></script>
+
+	<!--  our css style-->
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div id="myContainer">
+		<div id="side_menu_section" class="sidenav">
+			<div id="top_menu">
+				<p>NYSL</p>
+				<img id="close_cross" src="media/close-iconw.png" alt="close cross">
+			</div>
+			<ul style="list-style: none;" id="menu_list">
+				<li id="logInPage"><a>Sign in</a></li>
+				<li id="logOutPage"><a>Sign out</a></li>
+				<li id="indexPage"><a>Schedule</a></li>
+				<li id="regPage"><a>Registration</a></li>
+				<li id="aboutPage"><a>About</a></li>
+				<li id="teamsPage"><a>Teams</a></li>
+				<li id="locationsPage"><a>Locations</a></li>
+			</ul>
+		</div>
+		<div id="main">
+			<!--<div class="glass"></div>-->
+			<nav>
+				<div class="glass"></div>
+				<img id="menu_btn" src="media/menu-512.png" alt="menu icon">
+				<div id="search_section">
+					<input type="text" class="quicksearch" placeholder="search" id="search_field" onfocus="this.placeholder = ''" onblur="this.placeholder = 'search'">
+				</div>
+
+			</nav>
+			<div id="success">
+				<img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-color/700/011_yes-512.png">
+			</div>
+			<!--index page-->
+			<div class="loading">
+				<p>Loading info...</p>
+			</div>
+
+			<div id="index" class="panel-group gridIndex pad "></div>
+			<!--registration page-->
+			<div id="reg" class="mar">
+				<form id="myForm" action="show_data.html" method="GET">
+					<div class="form">
+						<label>
+					Player’s First Name:
+					<input type="text" name="players_name">
+				</label>
+						<label>
+					Last Name:
+					<input type="text" name="players_last">
+				</label>
+						<label>
+					Street Address:
+					<input type="text" name="streetadd">
+				</label>
+					</div>
+					<div class="form">
+						<label>
+					City:
+					<input type="text" name="city">
+				</label>
+						<label>
+					Zip Code:
+					<input type="text" name="zip">
+				</label>
+						<label>
+					Birth Date:
+					<input type="date" name="bday">
+				</label>
+					</div>
+					<div class="form">
+						<label> Gender:
+					<input type="radio" id="male" name="gender" value="male" >Male
+					<input type="radio" name="gender" id="female" value="female">Female
+				</label>
+						<label> Grade:
+					<select name="grade" id="selectGrade" >
+						<option value="select" >Select:</option>
+						<option value="Pre-School">Pre-School</option>
+						<option value="1st">1st</option>
+						<option value="2nd">2nd</option>
+						<option value="3rd">3rd</option>
+						<option value="4th">4th</option>
+						<option value="5th">5th</option>			
+					</select>
+				</label>
+					</div>
+					<div class="form">
+						<label>
+					Parent/Guardian name and surname:
+					<input type="text" name="parent_guardian">
+				</label>
+						<label>
+					Parent/Guardian Email:
+					<input type="text" name="email">
+				</label>
+						<label>
+					Parent/Guardian Phone number:
+					<input type="text" name="phoneNumber">
+				</label>
+						<label> First Closest School:
+					<select name="closest_school" id="closest_school" >
+						<option disabled selected value="select">Select:</option>
+						<option value="ajkatzenmaier">AJ Katzenmaier</option>
+						<option value="greenbay">Greenbay</option>
+						<option value="howardayeager">Howard A Yeager</option>
+						<option value="marjoriephart">Marjorie P Hart</option>
+						<option value="northelementary">North Elementary</option>
+						<option value="southelementary">South Elementary</option>
+					</select>
+				</label>
+						<label> Second Closest School:
+					<select name="closest_school2" id="closest_school2">
+						<option disabled selected value="select"  >Select:</option>
+						<option value="ajkatzenmaier">AJ Katzenmaier</option>
+						<option value="greenbay">Greenbay</option>
+						<option value="howardayeager">Howard A Yeager</option>
+						<option value="marjoriephart">Marjorie P Hart</option>
+						<option value="northelementary">North Elementary</option>
+						<option value="southelementary">South Elementary</option>
+					</select>
+				</label>
+					</div>
+					<div class="form">
+						<label>What position(s) do you <span class="makebolder">normally</span> play? (check all that apply)<br><br>
+					<input type="checkbox" id="forward" name="normal_position" value="pos"> Forward
+					<input type="checkbox" id="defense" name="normal_position" value="pos"> Defense
+					<input type="checkbox" id="midfield" name="normal_position" value="pos"> Midfield
+					<input type="checkbox" id="goalkeeper" name="normal_position" value="pos"> Goalkeeper
+				</label>
+					</div>
+					<div class="form">
+						<label>What position(s) do you <span class="makebolder">want</span> to play? (check all that apply)<br><br>
+					<input type="checkbox" name="desired_position" id="forward2" value="pos"> Forward
+					<input type="checkbox" name="desired_position" id="defense2" value="pos"> Defense
+					<input type="checkbox" name="desired_position" id="midfield2" value="pos"> Midfield
+					<input type="checkbox" name="desired_position" id="goalkeeper2" value="pos"> Goalkeeper
+				</label>
+					</div>
+					<div class="form">
+						<label>
+				 Already Have a Uniform <input id="checkbox" type=checkbox name="uniform" value="checked" onclick="alreadyUniform()"> 
+				</label>
+						<label>Jersey Size:
+					<select id="jsize" name="jsize" >
+						<option disabled selected value="select" >Select:</option>
+						<option value="ys">Youth Small</option>
+						<option value="ym">Youth Medium</option>
+						<option value="yl">Youth Large</option>
+						<option value="small">Small</option>
+						<option value="medium">Medium</option>
+						<option value="large">Large</option>
+						<option value="elarge">Extra-Large</option>
+					</select>
+				</label>
+						<label>Shorts Size:
+					<select id="ssize" name="ssize" >
+						<option disabled selected value="select" >Select:</option>
+						<option value="ys">Youth Small</option>
+						<option value="ym">Youth Medium</option>
+						<option value="yl">Youth Large</option>
+						<option value="small">Small</option>
+						<option value="medium">Medium</option>
+						<option value="large">Large</option>
+						<option value="elarge">Extra-Large</option>
+					</select>
+				</label>
+					</div>
+					<div class="conditions">
+						<p><span class="makebolder" id="evenbolder">Permission to Play</span><br><br>I, the parent or guardian of the minor registrant, agree that the registrant and I will abide by all the rules of the Northside Youth Soccer League (NYSL). In recognizing the possibility of physical injury associated with soccer and in consideration for the “League” accepting the registrant for its soccer programs and activities, I hereby release, discharge, and/or otherwise indemnify NYSL, their employees and associated personnel and volunteers, including the facilities used for practices and games, against any claim by or on behalf of the registrant as a result of the registrant’s participation in the program and/or being transported to or from NYSL sponsored activities, which transportation.<br><br>By signing below, I hereby agree and authorize the above. In addition, by signing below, I also acknowledge that I have read the cancellation policy and agree to its terms.</p>
+					</div>
+					<div class="sign">
+						<label id="parentsign">
+					Parent/Guardian Signature:
+					<input type="text" name="parents_name">
+				</label>
+						<label>
+					Date:
+					<input type="date" name="date">
+				</label>
+					</div>
+					<div class="fbutton">
+						<input type="submit" name="submit" value="Register">
+					</div>
+				</form>
+				<div class="download"><a href="attachments/Registration_Form.pdf">Registration Form PDF Download</a>
+				</div>
+			</div>
+			<!--about page-->
+			<div id="about" class="pad">
+				<div id="textAbout">
+					<h2>Mission</h2>
+					<p>To support young athletes living in Chicago's northside neighbourhoods, who have an interest in learning and playing soccer, with oportunities to learn and practice skills related to the game of soccer, specifically those skills around team cooperation and good sportsmanship.</p>
+					<h2>Vision</h2>
+					<p>The Northside Youth Soccer League aspires to develop strong, well-rounded, and mindful athletes through the building of character, self-discipline, and leadership.</p>
+					<h2>General Information</h2>
+					<p>The Northside Youth Soccer League was established in 1996 to provide athletes residing in Chicago's northside neighbourhoods an environment in which to learn and play soccer. To be a member of NYSL, you must be between the ages of 4 - 12 and reside in a Chicago northside neighbourhood. NYSL is ran by a small full-time staff, and relies on the generous volunteer time of parents and previous league members.</p>
+				</div>
+
+
+
+
+
+
+			</div>
+			<!--teams page-->
+			<div id="teams" class="pad">
+				<div id="teamsOutput" class="panel-group gridTeams"></div>
+			</div>
+			<!--locations page-->
+			<div id="locations" class="pad">
+
+				<div id="locationsOutput" class="panel-group gridLocations"></div>
+			</div>
+			<!--chat page-->
+			<div id="logIn" class="pad">
+
+				<!--Old Sign in form-->
+				<!--<form id="logInForm">
+					<input id="inputEmail" type="text" placeholder="Email:" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email:'">
+					<input id="inputPassword" type="password" placeholder="Password:" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password:'">
+					<button type="button" class="btn btn-default" id="logInBtn">Log in</button>
+				</form>-->
+				<!--new sign in form-->
+				<form class="form-signin">
+					<h2 class="form-signin-heading">Please sign in</h2>
+					<label for="inputEmail" class="sr-only">Email address</label>
+					<input type="email" id="inputEmail" class="form-control" placeholder="Email address">
+					<label for="inputPassword" class="sr-only">Password</label>
+					<input type="text" id="inputPassword" class="form-control" placeholder="Password">
+					<div class="checkbox">
+						<label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+					</div>
+					<button id="logInBtn" class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
+				</form>
+
+
+
+
+
+			</div>
+		</div>
+		<!--<div id="intro"></div>-->
+		<div id="right"></div>
+		<div id="rightGlass"></div>
+	</div>
+
+	<script type="text/html" id="indexTemplate">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-parent="#index" data-toggle="collapse" href="#collapseIndex{{id}}">Date: {{date}} Teams: {{teams}}</a>
+				</h4>
+			</div>
+			<div id="collapseIndex{{id}}" class="panel-collapse collapse">
+				<div class="panel-body">
+					<p>{{date}} {{month}} {{time}}</p>
+					<p>{{teams}} {{location}}</p>
+					<p><iframe src="{{map}}" width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+					<div class="userCommentsOutput"></div>
+					<div class="commentSection">
+						<table class="commentsOutput"></table>
+						<div class="addAComment">
+							<div class="commentBody"><input class="inputBody" type="text"></div>
+							<button type="button" class="btn btn-default inputCommentBtn">leave comment</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="commentTemplate">
+		<div class="media">
+			<div class="media-left">
+				<img src="media/6448-200.png" class="media-object" style="width:60px">
+			</div>
+			<div class="media-body">
+				<h4 class="mediaHeading">{{user}}</h4>
+				<p class="mediaBody">{{comment}}</p>
+				<p>{{timestamp}}</p>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="locationsTemplate">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-parent="#locationsOutput" data-toggle="collapse" href="#collapseLocations{{id}}">
+						{{name}}
+					</a>
+				</h4>
+			</div>
+			<div id="collapseLocations{{id}}" class="panel-collapse collapse">
+				<div class="panel-body">
+					<p>{{address}}</p>
+					<p><img class="stadium" src="{{img}}"></p>
+					<p><iframe src="{{map}}" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="teamsTemplate">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-parent="#teamsOutput" data-toggle="collapse" href="#collapseTeams{{id}}">
+						{{name}}
+					</a>
+				</h4>
+			</div>
+			<div id="collapseTeams{{id}}" class="panel-collapse collapse">
+				<div class="panel-body">
+					<p>{{info}}</p>
+					<img class="teamPhoto" src="{{img}}">
+				</div>
+			</div>
+		</div>
+	</script>
+	<!--<script type="text/html" id="commentsTemplate">
+		<table>
+			<tr>
+				<td>{{user}}</td>
+				<td>{{comment}}</td>
+			</tr>
+		</table>
+	</script>-->
+
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyBVrS0C-iDjswuOqcOrdiAWglBIclOFUpk",
+			authDomain: "nysl-m.firebaseapp.com",
+			databaseURL: "https://nysl-m.firebaseio.com",
+			projectId: "nysl-m",
+			storageBucket: "",
+			messagingSenderId: "893367533516"
+		};
+		firebase.initializeApp(config);
+
+	</script>
+	<script src="script/main.js" type="text/javascript"></script>
+
+
+
+</body>
+
+</html>

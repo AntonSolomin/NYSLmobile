@@ -1,0 +1,468 @@
+body {
+	--placeholder-color: #ffffff;
+}
+
+.facet_sidebar {
+	display: none;
+}
+
+nav {
+	position: fixed;
+	height: 75px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	background-color: #2196F3;
+	z-index: 1000;
+}
+
+#menu_btn {
+	height: 65px;
+	margin: 5px;
+}
+
+#search_section {
+	width: 70%;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	transition: right 0.2s ease-out;
+}
+
+.panel-group {
+	width: 100% !important;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.panel-heading {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	padding: 0;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+27,ffffff+100&1+27,0+100 */
+	background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 27%, rgba(255, 255, 255, 0) 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 27%, rgba(255, 255, 255, 0) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 27%, rgba(255, 255, 255, 0) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=0);
+	/* IE6-9 */
+}
+
+
+/*	moving the sidenav*/
+
+.sidenav {
+	height: 100%;
+	width: 250px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: -250px;
+	background-color: #111;
+	overflow-x: hidden;
+	transition: left 0.2s ease-out;
+}
+
+.sidenav a {
+	padding: 8px 8px 8px 8px;
+	text-decoration: none;
+	/*font-size: 25px;*/
+	color: #818181;
+	display: block;
+	transition: 0.2s ease-out;
+}
+
+/*.sidenav a:hover,
+.offcanvas a:focus {
+	color: #f1f1f1;
+}*/
+
+.sidenav {
+	padding-top: 15px;
+}
+
+#menu_list a {
+	color: white;
+	font-size: 32px;
+}
+
+#close_cross {
+	height: 75px;
+	width: 75px;
+}
+
+#top_menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#top_menu p {
+	margin: 0;
+	padding-left: 20px;
+	color: grey;
+	font-size: 38px;
+}
+
+label {
+	width: 100%;
+}
+
+#reg h2 {
+	padding: 0 20px 0 20px;
+}
+
+select {
+	width: 100%;
+}
+
+#gender {
+	display: flex;
+	align-items: center;
+}
+
+#positions label {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+/*hiding the content initial*/
+
+#logIn {
+	display: none;
+	height: 100%;
+	width: 100%;
+}
+
+#reg {
+	display: none;
+	margin: 10px;
+	margin-top: 85px;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+#myForm {
+	font-size: 28px;
+	padding: 10px;
+}
+
+#about {
+	display: none;
+}
+
+#textAbout {
+	margin: 10px;
+}
+
+#teams {
+	display: none;
+}
+
+#locations {
+	display: none;
+}
+
+.panel-body {
+	width: 100%;
+	background-color: rgb(255, 228, 196);
+}
+
+.panel-footer iframe {
+	min-height: 300px;
+}
+
+.panel-group .panel+.panel {
+	margin-top: 0;
+}
+
+#main {
+	position: absolute;
+	left: 0;
+	transition: left 0.2s ease-out;
+}
+
+.glass {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition: background-color 0.2s ease-out;
+}
+
+.panel-title>a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+
+.panel-title {
+	width: 100%;
+}
+
+#myContainer {
+	position: relative;
+	overflow-x: hidden;
+}
+
+.grid-item {
+	width: 100%;
+}
+
+.stadium {
+	width: 100%;
+	height: auto;
+}
+
+.teamPhoto {
+	width: 100%;
+	height: auto;
+}
+
+.pad {
+	padding-top: 75px;
+}
+
+#search_field {
+	color: white;
+	box-sizing: border-box;
+	border-radius: 0;
+	border-top-width: 0;
+	border-left-width: 0;
+	border-right-width: 0;
+	border-bottom: 2px solid #ffffff;
+	font-size: 16px;
+	background-color: #2196F3;
+	background-image: url(https://microadmin.jornada.com.mx/ojarasca/++theme++lajornadaojarasca.theme/++theme++lajornadaojarasca.theme/images/search.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: 40px 40px;
+	padding: 12px 20px 12px 40px;
+	float: right;
+	width: 50%;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
+
+
+/* When the input field gets focus, change its width to 90% */
+
+#search_field:focus {
+	width: 90%;
+	outline: none;
+}
+
+#right {
+	position: absolute;
+	right: 0;
+	top: 75px;
+	width: 50%;
+	height: 100%;
+	background-color: bisque;
+	transition: right 0.2s ease-out;
+	transition: visibility 0s opacity 2s ease-in-out;
+}
+
+#search_field::-webkit-input-placeholder {
+	/* WebKit, Blink, Edge */
+	color: var(--placeholder-color);
+		 
+}
+
+#search_field:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: var(--placeholder-color);
+	opacity: 1;
+		
+}
+
+#search_field::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: var(--placeholder-color);
+	opacity: 1;
+		 
+}
+
+#search_field:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: var(--placeholder-color);
+		
+}
+
+#search_field::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: var(--placeholder-color);
+		 
+}
+
+/* webkit solution */
+::-webkit-input-placeholder {
+	text-align: left;
+}
+
+/* mozilla solution */
+input:-moz-placeholder {
+	text-align: left;
+}
+
+.loading {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	top: 100px;
+}
+
+
+#success {
+	position: absolute;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+#success img {
+	height: 100px;
+	width: 100px;
+}
+
+@media (orientation: portrait) {
+	#right {
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		transition: visibility 0s opacity 2s ease-in-out;
+	}
+	#main {
+		width: 100%;
+		height: 100%;
+	}
+	#rightGlass {
+		background-color: bisque;
+	}
+}
+
+@media (orientation: landscape) {
+	
+	#rightGlass {
+		background-color: transparent;
+    position: absolute;
+		display: inline;
+    top: 75px;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+		transition: background-color 0.2s, right 0.2s ease-out;
+	}
+	
+	
+	
+	#right {
+		position: absolute;
+		top: 75px;
+		display: inline;
+		height: 100%;
+		opacity: 1;
+		visibility: visible;
+		transition: visibility 0s opacity 2s ease-in-out;
+	}
+	
+	.panel-body {
+		padding: 0;
+		height: 100%;
+		padding: 10px;
+	}
+
+	#main {
+		width: 50% ;
+	}
+}
+
+
+#addAComment {
+	margin-top: 100px;
+	background-color: gray;
+	width: 100%;
+}
+
+#commentBody {
+	background-color: gray;
+	width: 100%;
+	height: 100px;;
+	
+}
+
+#inputBody {
+	width: 100%;
+	height: 100%;
+}
+
+
+/*styling log in screen*/
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/*END styling log in screen*/
+
+.commentsOutput > tr {
+	margin-top: 5px;
+}
+
+.mediaHeading {
+	background-color: #8585ef;
+}
+.mediaBody {
+	background-color: #faf5eb;
+}
+.media {
+	border: 1px solid black;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
+#logInBtn {
+	background-color: #2196F3;
+}
